@@ -1,6 +1,6 @@
 ---
 name: belogical
-description: 'Structures answers and documents as logic pyramids that fit how humans comprehend. Use for standalone documents (reports, proposals, plans, READMEs, announcements), drawing conclusions from unsorted material and ideas, checking and repairing the logic of existing text, and logically structured answers. Explicit `/belogical` invocation only — pass a route as the argument (e.g. `/belogical document`, `/belogical organize`, `/belogical repair`).'
+description: 'Structures answers and documents as logic pyramids that fit how humans comprehend. Use for standalone documents (reports, proposals, plans, READMEs, announcements), drawing conclusions from unsorted material and ideas, checking and repairing the logic of existing text, compressing a finished source (report, paper, transcript, book, or a pile of documents) into a summary that stands in for reading it, and logically structured answers. Explicit `/belogical` invocation only — pass a route as the argument (e.g. `/belogical document`, `/belogical organize`, `/belogical repair`, `/belogical summarize`).'
 disable-model-invocation: true
 ---
 
@@ -59,6 +59,7 @@ If the user names a route as the argument (`/belogical repair`, etc.), go straig
 | Test (top to bottom) | Route | Modules to load |
 |---|---|---|
 | Gives existing text and asks to fix or check it | **repair** | references/repair-text.md (diagnostic criteria: grouping-order.md) |
+| Gives a finished source — a report, paper, book, article, transcript, or a pile of documents — and asks for a summary to be read in its place | **summarize** | references/exec-summary.md (merge for oversized or multi-document sources: build-pyramid.md §3) |
 | Asks for a deliverable that will be read standalone, outside this conversation | **document** | references/build-pyramid.md → scqa-intro.md → grouping-order.md → page-delivery.md |
 | Hands over a pile of material or ideas and asks to draw a conclusion or organize it | **organize** | references/build-pyramid.md (bottom-up) + thinking-tools.md (check criteria: grouping-order.md) |
 | Everything else — answering a question in conversation | **answer** | No extra modules — the principles above suffice |
@@ -67,6 +68,8 @@ Mixed cases:
 
 - If a document is required but no conclusion stands yet, run the organize route first to obtain the apex sentence, then return to the document route.
 - If repair needs rewriting beyond rearrangement, escalate to the document route — keeping the invariant that meaning, figures, and nuance do not change.
+- If the request wants conclusions the source itself doesn't state ('what should we do about this data?'), run organize — summarize compresses only what the source already says. A source that is unstructured but settled (a transcript, meeting notes, a thread) stays on summarize: extract bottom-up, under the same invariant.
+- If the shortened text will itself remain the deliverable ('tighten my draft'), that is repair or document — summarize produces a summary read in place of a source that continues to exist.
 
 ## Procedures per route
 
@@ -95,3 +98,13 @@ The reader of a standalone document doesn't hold a question yet. The writer must
 ### Repair — diagnose, then rearrange
 
 Follow the procedure in repair-text.md: extract → diagnose → rearrange → check. For the group and summary criteria used in diagnosis, see grouping-order.md. What makes text easier to understand is arrangement, not sentence style — preserve sentences as far as possible, and never change meaning, figures, or nuance (level of confidence, emphasis, implication).
+
+### Summarize — compress a finished source to stand in for reading it
+
+The reader will use the summary in place of the source, so selection against the reader's question is the work — a summary that walks the source in its own order is a table of contents in prose, not a summary.
+
+1. **Fix the reader and their question** (exec-summary.md §3): the question, not the source's length, sets the apex and the length (§4).
+2. **Extract** each part's core claim, strongest supports with figures, and nuance (§5). If the source exceeds the context window or is a pile of documents, run subagents under the extraction contract (§6).
+3. **Re-aim and rebuild** (§3): set the apex as the source's answer to the reader's question — which may differ from the source's own organizing question — keep only points that answer it, and merge bottom-up (build-pyramid.md §3) when extracted in parts.
+4. **Keep drill-down open** (§1): trace each key point to its part of the source; add the one-line lead only when the summary travels to readers who didn't ask for it (§7).
+5. **Check** (§8): every claim is the source's, figures and nuance faithful in what remains, no inherited order — then run 'Always check before you deliver'.

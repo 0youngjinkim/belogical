@@ -1,7 +1,7 @@
 # build-pyramid — Building the pyramid
 
 > Role: set the one-sentence apex and complete the pyramid layer by layer.
-> Loaded on: document (step 1), organize (step 1)
+> Loaded on: document (step 1), organize (step 1), summarize (§3, merging part-extractions)
 > Distilled from the construction procedure in Minto's *The Pyramid Principle*.
 
 ## Principle: structure before prose

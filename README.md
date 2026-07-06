@@ -1,10 +1,14 @@
+**English** | [한국어](README-ko.md)
+
 # belogical — a skill that makes AI answer logically
 
-> AI answers, conclusion first and in the order a reader can follow. Barbara Minto's Pyramid Principle, ported to a Claude Code skill.
+> Answer first. Reasons after.
 
-AI answers are too long, too dense, and too complex for people. They follow the mechanical order the information arrived in, with no regard for how human comprehension works or what it costs. belogical builds on Barbara Minto's Pyramid Principle to make AI always set the conclusion first and answer in the order a reader can follow.
+belogical is a Claude Code skill that makes AI answer the way consultants are trained to write: conclusion at the top, support beneath it, unfolding in the order the reader's questions arise. It is Barbara Minto's *Pyramid Principle* — the writing discipline of management consulting — distilled into rules an LLM can actually follow.
 
-It's a Claude Code skill you invoke with `/belogical`. Use it to write standalone documents (reports, proposals, READMEs), to draw a conclusion out of unsorted material, to check and repair the logic of text you already have, or simply to make an answer land logically.
+The problem it solves: AI writes instantly and at length, but you still read at human speed. The bottleneck has moved from writing to reading — and AI answers still arrive in the order the model happened to generate them, conclusion last. belogical inverts that order, every time.
+
+Invoke `/belogical` to write standalone documents, draw a conclusion out of unsorted material, repair the logic of existing text, compress a finished source into a summary read in its place, or simply get an answer that lands.
 
 ## Requirements
 
@@ -19,11 +23,11 @@ Two ways. The plugin install is recommended.
 Two commands in Claude Code and you're done.
 
 ```
-/plugin marketplace add 0youngjinkim/belogical-en
-/plugin install belogical@belogical-en
+/plugin marketplace add 0youngjinkim/belogical
+/plugin install belogical@belogical
 ```
 
-Once installed, invoke it with `/belogical`. To update later, run `/plugin marketplace update belogical-en`.
+Once installed, invoke it with `/belogical`. To update later, run `/plugin marketplace update belogical`.
 
 ### Option 2 — manual copy
 
@@ -34,12 +38,13 @@ Copy the `skills/belogical/` directory into one of the locations below. Principl
 
 ## Usage
 
-Invoke `/belogical` directly. Call it bare and the router classifies the request into one of four routes; name a route as the argument to go straight there.
+Invoke `/belogical` directly. Call it bare and the router classifies the request into one of five routes; name a route as the argument to go straight there.
 
-- `/belogical` — classify the request and route to answer, document, organize, or repair
+- `/belogical` — classify the request and route to answer, document, organize, repair, or summarize
 - `/belogical document` — standalone document writing (SCQA introduction + pyramid building + page layout)
 - `/belogical organize` — draw a conclusion from unsorted material and ideas (bottom-up + logic tree)
 - `/belogical repair` — diagnose and repair existing text (extract → diagnose → rearrange)
+- `/belogical summarize` — compress a finished source into a summary read in its place (selection against your question; map-reduce for oversized or multi-document sources)
 
 ## Two ways to apply it
 
@@ -50,18 +55,19 @@ There are two ways to apply the principles, and they can be combined.
 
 ## What's inside
 
-One set of principles and six methodologies.
+One set of principles and seven methodologies.
 
 | File | Role |
 |---|---|
 | `skills/belogical/SKILL.md` | Governing principles + router — applies the principles, classifies the request, and points to the right methodology module |
-| `skills/belogical/references/` | Six methodology modules — loaded only on their route |
+| `skills/belogical/references/` | Seven methodology modules — loaded only on their route |
 
 The principles and the router live in the single SKILL.md. Invoking the skill loads that file whole, so the principles apply first and only the module the request needs is added on top.
 
 ```
-belogical-en/
+belogical/
 ├── README.md
+├── README-ko.md
 ├── LICENSE
 ├── .claude-plugin/
 │   ├── marketplace.json   # plugin marketplace catalog
@@ -75,7 +81,8 @@ belogical-en/
             ├── grouping-order.md   # Grouping and checking — three rules, deduction vs induction, MECE, summaries
             ├── page-delivery.md    # Page and screen delivery — the 30-second rule, headings, presentations
             ├── thinking-tools.md   # Thinking tools — problem definition, structuring relationships (logic trees)
-            └── repair-text.md      # Repairing existing text — extraction, diagnosis, rearrangement
+            ├── repair-text.md      # Repairing existing text — extraction, diagnosis, rearrangement
+            └── exec-summary.md     # Summarizing a finished source — re-aimed apex, extraction contract, drill-down
 ```
 
 ## Source

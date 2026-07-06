@@ -1,7 +1,7 @@
 # grouping-order — Grouping and checking
 
 > Role: form the groups beneath each layer, order them, set their summaries, and check against the three rules.
-> Loaded on: document (step 3). Check and diagnostic criteria for the organize and repair routes.
+> Loaded on: document (step 3). Check and diagnostic criteria for the organize, repair, and summarize routes.
 > Distilled from Minto's grouping and summarizing methods. Numeric thresholds are recommended defaults for reducing cognitive load, not absolute rules.
 
 ## 1. The three rules — the standard for every check
