@@ -1,0 +1,8 @@
+{
+  "name": "belogical",
+  "description": "A logic pyramid skill that makes AI set the conclusion first and answer in the order a reader can follow (English). Based on Barbara Minto's Pyramid Principle.",
+  "version": "1.0.0",
+  "author": {
+    "name": "0youngjinkim"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "belogical-en",
+  "owner": {
+    "name": "0youngjinkim"
+  },
+  "plugins": [
+    {
+      "name": "belogical",
+      "source": ".",
+      "description": "A skill that makes AI set the conclusion first and answer in the order a reader can follow. Built on Barbara Minto's Pyramid Principle. (English)"
+    }
+  ]
+}
