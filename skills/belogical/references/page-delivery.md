@@ -10,7 +10,7 @@ Within 30 seconds of starting to read, the reader should hold the whole thought 
 
 ## 2. Headings carry messages, not categories
 
-Category labels like 'Background', 'Conclusion', 'Findings' contribute nothing to comprehension. Put the section's core idea in the heading — but its job is to remind, so don't cram in the whole summary sentence; move reasons and conditional clauses into the body's first sentence. The exception is reference documents (READMEs, manuals) where navigational headings have hardened into convention (Installation, Usage) — readers find sections by those names, so keep them; the no-labels rule applies to sections that carry ideas.
+Category labels like 'Background', 'Conclusion', 'Findings' contribute nothing to comprehension. Put the section's core idea in the heading — but its job is to remind, so don't cram in the whole summary sentence; move reasons and conditional clauses into the body's first sentence. The exception is reference documents (READMEs, manuals) where navigational headings have hardened into convention (Installation, Usage) — readers find sections by those names, so keep them; the no-labels rule applies to sections that carry ideas. The same rule reaches the subject line: in anything sent with one (an email, an announcement, a ticket), the subject is the topmost heading — give it the ask and any deadline that changes what the reader does ('Design draft needed by Monday 10 a.m.'), not the topic alone ('Re: schedule').
 
 Recommended rules for hierarchical headings:
 
