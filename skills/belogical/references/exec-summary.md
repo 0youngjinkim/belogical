@@ -38,7 +38,7 @@ When the source exceeds the context window or is a pile of documents, split alon
 3. Confidence and nuance markers as the source states them.
 4. The part's role in the whole.
 
-A sequential mini-summary of the part is explicitly out of contract — it reproduces the §2 defect at part level and poisons the merge. Then merge: deduplicate claims that in effect say the same thing, reconstruct the pyramid bottom-up (build-pyramid.md §3), and re-aim at the reader's question (§3).
+A sequential mini-summary of the part is explicitly out of contract — it reproduces the §2 defect at part level and poisons the merge. If the host cannot run subagents, process the parts sequentially yourself under the same contract: read one part, write down its contract output, discard the part's text, then read the next — only the contract outputs and the whole's frame carry forward. Then merge: deduplicate claims that in effect say the same thing, reconstruct the pyramid bottom-up (build-pyramid.md §3), and re-aim at the reader's question (§3).
 
 ## 7. The lead-in — usually none
 
