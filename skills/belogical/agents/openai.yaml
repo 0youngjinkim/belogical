@@ -1,0 +1,5 @@
+interface:
+  display_name: "belogical"
+  short_description: "Answer first. Reasons after. Structures answers and documents as logic pyramids."
+policy:
+  allow_implicit_invocation: false

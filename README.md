@@ -4,21 +4,23 @@
 
 > Answer first. Reasons after.
 
-belogical is a Claude Code skill that makes AI answer the way consultants are trained to write: conclusion at the top, support beneath it, unfolding in the order the reader's questions arise. It is Barbara Minto's *Pyramid Principle* — the writing discipline of management consulting — distilled into rules an LLM can actually follow.
+AI produces more and more text, but the amount a person can read and understand in a day is fixed. Using that time efficiently means raising the quality of every piece of text AI produces.
 
-The problem it solves: AI writes instantly and at length, but you still read at human speed. The bottleneck has moved from writing to reading — and AI answers still arrive in the order the model happened to generate them, conclusion last. belogical inverts that order, every time.
+belogical is an agent skill for Claude Code and Codex that makes AI answer the way a trained management consultant would: conclusion at the top, support beneath it, unfolding in the order the reader's questions arise. It distills Barbara Minto's *Pyramid Principle* — the bible of the management consulting industry — into rules an LLM can follow.
 
-Invoke `/belogical` to write standalone documents, draw a conclusion out of unsorted material, repair the logic of existing text, compress a finished source into a summary read in its place, or simply get an answer that lands.
+Invoke `/belogical|$belogical` to write documents, draw conclusions from unsorted material, check the logic of existing text, or compress a finished source into a summary read in its place. It works in casual conversation, too.
+
+I hope this skill helps many people get more out of their reading time. For questions, reach me at 0youngjin.kim@gmail.com.
 
 ## Requirements
 
-[Claude Code](https://code.claude.com/docs), any version that supports skills and plugins.
+[Claude Code](https://code.claude.com/docs) (any version that supports skills and plugins) or [Codex CLI](https://developers.openai.com/codex/cli) (any version that supports Agent Skills).
 
 ## Installation
 
-Two ways. The plugin install is recommended.
+Two ways on each tool — the installer route is recommended.
 
-### Option 1 — plugin marketplace (recommended)
+### Claude Code, option 1 — plugin marketplace (recommended)
 
 Two commands in Claude Code and you're done.
 
@@ -29,16 +31,35 @@ Two commands in Claude Code and you're done.
 
 Once installed, invoke it with `/belogical`. To update later, run `/plugin marketplace update belogical`.
 
-### Option 2 — manual copy
+### Claude Code, option 2 — manual copy
 
 Copy the `skills/belogical/` directory into one of the locations below. Principles, router, and modules live in one folder, so this single copy is all it takes.
 
 - `~/.claude/skills/` — global; `/belogical` works in every project.
 - `<project>/.claude/skills/` — that project only.
 
+### Codex, option 1 — skill installer (recommended)
+
+Run `$skill-installer` in Codex and ask it to install from this repo:
+
+```
+$skill-installer install from repo 0youngjinkim/belogical, path skills/belogical
+```
+
+Restart Codex, then invoke it with `$belogical`.
+
+### Codex, option 2 — manual copy
+
+Copy the `skills/belogical/` directory into one of the locations below, then invoke it with `$belogical`.
+
+- `~/.codex/skills/` — global; `$belogical` works in every project.
+- `<project>/.codex/skills/` — that project only.
+
+The bundled `agents/openai.yaml` keeps the skill explicit-invocation only on Codex — it never injects itself into ordinary requests.
+
 ## Usage
 
-Invoke `/belogical` directly. Call it bare and the router classifies the request into one of five routes; name a route as the argument to go straight there.
+Invoke `/belogical` directly (on Codex, replace `/belogical` with `$belogical` throughout — routes pass the same way). Call it bare and the router classifies the request into one of five routes; name a route as the argument to go straight there.
 
 - `/belogical` — classify the request and route to answer, document, organize, repair, or summarize
 - `/belogical document` — standalone document writing (SCQA introduction + pyramid building + page layout)
@@ -50,8 +71,8 @@ Invoke `/belogical` directly. Call it bare and the router classifies the request
 
 There are two ways to apply the principles, and they can be combined.
 
-- **On invocation (default)**: calling `/belogical` loads the principles and routing together. The skill is explicit-invocation only (`disable-model-invocation` in the frontmatter), so it fires only when you type it and never injects itself into ordinary requests like "write me a report".
-- **Ambient (optional)**: to apply the principles to every conversation without invoking the skill, copy only the 'Governing principles' section between the `BELOGICAL:PRINCIPLES` markers in `skills/belogical/SKILL.md` into your global (`~/.claude/CLAUDE.md`) or project CLAUDE.md. The source of truth stays in one place; when it changes, update only your pasted copy.
+- **On invocation (default)**: calling `/belogical` loads the principles and routing together. The skill is explicit-invocation only (`disable-model-invocation` in the frontmatter; `agents/openai.yaml` on Codex), so it fires only when you type it and never injects itself into ordinary requests like "write me a report".
+- **Ambient (optional)**: to apply the principles to every conversation without invoking the skill, copy only the 'Governing principles' section between the `BELOGICAL:PRINCIPLES` markers in `skills/belogical/SKILL.md` into your global (`~/.claude/CLAUDE.md`) or project CLAUDE.md — on Codex, into `~/.codex/AGENTS.md` or the project AGENTS.md. The source of truth stays in one place; when it changes, update only your pasted copy.
 
 ## What's inside
 
@@ -75,6 +96,8 @@ belogical/
 └── skills/
     └── belogical/
         ├── SKILL.md                # Governing principles (marked section, paste-ready for ambient use) + router: classify → load module → common gate
+        ├── agents/
+        │   └── openai.yaml         # Codex metadata — keeps the skill explicit-invocation only
         └── references/
             ├── build-pyramid.md    # Setting the apex — five top-down questions / three bottom-up steps
             ├── scqa-intro.md       # Introduction design — SCQA, order variants, skeletons by document type
@@ -91,4 +114,4 @@ Barbara Minto, *The Minto Pyramid Principle*. The methodology's vocabulary and c
 
 ## License
 
-MIT — use, modify, and redistribute freely. The methodology itself is copyright its original author (Barbara Minto); this repository's license covers only the skill files it contains.
+MIT — use, modify, and redistribute freely. The methodology is not itself copyrightable; *The Minto Pyramid Principle* book and its text are copyright Barbara Minto. This repository's MIT license covers only the skill files.
