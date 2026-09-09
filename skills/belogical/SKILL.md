@@ -97,7 +97,7 @@ The reader of a standalone document doesn't hold a question yet. The writer must
 
 ### Repair — diagnose, then rearrange
 
-Follow the procedure in repair-text.md: extract → diagnose → rearrange → check. For the group and summary criteria used in diagnosis, see grouping-order.md. What makes text easier to understand is arrangement, not sentence style — preserve sentences as far as possible, and never change meaning, figures, or nuance (level of confidence, emphasis, implication).
+The target is the text the user gave. If `/belogical repair` is called with no text, the target is the assistant's most recent answer in this conversation — this lets an answer be drafted without the skill and then rearranged by it. Follow the procedure in repair-text.md: extract → diagnose → rearrange → check. For the group and summary criteria used in diagnosis, see grouping-order.md. What makes text easier to understand is arrangement, not sentence style — preserve sentences as far as possible, and never change meaning, figures, or nuance (level of confidence, emphasis, implication).
 
 ### Summarize — compress a finished source to stand in for reading it
 
