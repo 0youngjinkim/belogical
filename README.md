@@ -64,7 +64,7 @@ Invoke `/belogical` directly (on Codex, replace `/belogical` with `$belogical` t
 - `/belogical` — classify the request and route to answer, document, organize, repair, or summarize
 - `/belogical document` — standalone document writing (SCQA introduction + pyramid building + page layout)
 - `/belogical organize` — draw a conclusion from unsorted material and ideas (bottom-up + logic tree)
-- `/belogical repair` — diagnose and repair existing text (extract → diagnose → rearrange)
+- `/belogical repair` — diagnose and repair existing text (extract → diagnose → rearrange); called with no text, it repairs the previous answer, so you can draft without the skill and tidy afterward
 - `/belogical summarize` — compress a finished source into a summary read in its place (selection against your question; map-reduce for oversized or multi-document sources)
 
 ## Two ways to apply it
